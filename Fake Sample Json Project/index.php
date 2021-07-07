@@ -127,21 +127,21 @@ $(document).ready(function(){
 
 <script>
 
-//JSON.parse(FakeSample.json)
+//JSON GET start
 $(document).ready(function(){
     $.getJSON("FakeSample.json", function(data){
         var gene_data = '';
         
         $.each(data, function(key,value){
             
-            if(key==="CurrentMedications") {
+            if(key==="CurrentMedications") { //check
                var index = 0; 
                $.each(value[index], function(key1,value1){ 
                     
                     if(key1==="GeneInfo"){
                         var index1 = 0;
 
-                      for(var x = 0;x<value1.length;x++){
+                      for(var x = 0;x<value1.length;x++){ //for each check
                         gene_data += '<tr>';
                         gene_data += '<td>' +value1[x].Gene+'</td>';
                         gene_data += '<td>' +value1[x].Genotype+'</td>';
@@ -170,7 +170,7 @@ $(document).ready(function(){
             }
 
         });
-        $('#hidden_row1').append(gene_data);
+        $('#hidden_row1').append(gene_data); //append data
     });
 
 
